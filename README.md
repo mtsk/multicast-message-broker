@@ -69,8 +69,9 @@ Following message format is used internally:
 To support detection & recovery from data received in an unexpected format, CRC check of header is included in the message. If this check doesn't pass after message header bytes are read from the incoming data stream, receiving pipeline is reset and broker continues to search for start of the message. CRC algo is not my own implementation, I've included first one that I've found which had required interface.
 
 One of requirements was that the broker should work straight out of the box on any machine without the need of configuration. Because of this, by default, broker transmits/receives on all network interfaces it finds on the machine. If you want to change this behavior you can adjust the interface filter in JoinMulticastGroup method. Currently the filter looks like this:
-
+```csharp
     Dns.GetHostAddresses(Dns.GetHostName()).Where(i => i.AddressFamily == AddressFamily.InterNetwork)
+```
 
 There is one constructor:
 ```csharp
