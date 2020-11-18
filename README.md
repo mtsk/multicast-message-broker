@@ -71,13 +71,14 @@ One of requirements was that the broker should work straight out of the box on a
 
 There is one constructor:
 
+    ```cs
     public MulticastMessageBroker(
         IPAddress multicastGroup,
         int port,
         int multicastTTL = 255,
         int processedMessageHistoryCount = 30,
         int maxSendByteCount = -1)
-    ...
+    ```
 
 Each message carries unique id. To detect duplicate messages, message broker stores unique id of each received message into the list. If the received message unique id is in this list, the message is discarded. The length of this list can be controlled by processedMessageHistoryCount. By setting value to -1, you can turn off duplicate message detection.
 
