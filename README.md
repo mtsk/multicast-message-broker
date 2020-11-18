@@ -71,7 +71,7 @@ One of requirements was that the broker should work straight out of the box on a
 
 There is one constructor:
 
-    ```cs
+    ```csharp
     public MulticastMessageBroker(
         IPAddress multicastGroup,
         int port,
